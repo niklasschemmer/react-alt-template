@@ -1,0 +1,29 @@
+{
+  "name": "reactAlt",
+  "version": "1.0.0",
+  "description": "React flux template",
+  "main": "index.js",
+  "scripts": {
+    "server": "webpack-dev-server --hot --inline --colors --progress"
+  },
+  "keywords": [],
+  "author": "Rico Herwig",
+  "repository": "github.com/rherwig/react",
+  "license": "ISC",
+  "devDependencies": {
+    "alt": "^0.17.1",
+    "babel": "^6.0.15",
+    "babel-core": "^6.1.4",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.1.4",
+    "babel-preset-react": "^6.1.4",
+    "babel-preset-stage-0": "^6.1.2",
+    "babel-preset-stage-1": "^6.1.2",
+    "jsx-loader": "^0.13.2",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
