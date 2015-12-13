@@ -1,15 +1,30 @@
 import React from "react";
-
-import Offer from "./offer/Offer";
+import AppStore from "../stores/AppStore";
+import AppActions from "../actions/AppActions";
 
 class App extends React.Component {
 
+    constructor() {
+        super();
+        this.state = AppStore.getState();
+    }
+
+    componentDidMount() {
+        AppStore.listen(this.onChange.bind(this));
+    }
+
+    componentWillUnmount() {
+        AppStore.unlisten(this.onChange.bind(this));
+    }
+
+    onChange(state) {
+        this.setState(state);
+    }
+
     render() {
         return (
-            <div className="tapp">
-                <div className="tapp__content is-dark">
-                    <Offer/>
-                </div>
+            <div>
+                <h1>{this.state.message}</h1>
             </div>
         );
     }

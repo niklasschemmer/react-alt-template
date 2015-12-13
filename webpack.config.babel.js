@@ -1,9 +1,9 @@
-var webpack = require("webpack");
-var path = require("path");
+import webpack from "webpack";
+import path from "path";
 
 var ROOT_PATH = path.resolve(__dirname);
 
-module.exports = {
+export default {
     entry: [
         "webpack/hot/dev-server",
         "webpack-dev-server/client?http://localhost:8080",
