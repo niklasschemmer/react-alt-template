@@ -2,33 +2,31 @@ import React from "react";
 import AppStore from "../stores/AppStore";
 import AppActions from "../actions/AppActions";
 
+import connectToStores from 'alt/utils/connectToStores';
+
 class App extends React.Component {
 
-    constructor() {
-        super();
-        this.state = AppStore.getState();
+    static getStores() {
+        return [AppStore];
     }
 
-    componentDidMount() {
-        AppStore.listen(this.onChange.bind(this));
+    static getPropsFromStores() {
+        return AppStore.getState();
     }
 
-    componentWillUnmount() {
-        AppStore.unlisten(this.onChange.bind(this));
-    }
-
-    onChange(state) {
-        this.setState(state);
-    }
+    changeMessage = () => {
+        AppActions.changeMessage('World');
+    };
 
     render() {
         return (
             <div>
-                <h1>{this.state.message}</h1>
+                <h1>{this.props.message}</h1>
+                <button onClick={this.changeMessage}>Change</button>
             </div>
         );
     }
 
 }
 
-export default App;
+export default connectToStores(App);

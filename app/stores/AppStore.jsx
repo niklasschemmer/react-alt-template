@@ -1,18 +1,22 @@
-import alt from "../alt";
-import AppActions from "../actions/AppActions";
+import alt from '../alt';
+import AppActions from '../actions/AppActions';
 
 class AppStore {
 
     constructor() {
         this.bindActions(AppActions);
 
-        this.message = "Hello World!";
+        this.state = {
+            message: 'Hello!'
+        }
     }
 
-    sayHello(name) {
-        console.debug(`Hello ${name}! I am the AppStore!`);
+    changeMessage(message) {
+        this.setState({
+            message: message
+        });
     }
 
 }
 
-export default alt.createStore(AppStore, "AppStore");
+export default alt.createStore(AppStore, 'AppStore');

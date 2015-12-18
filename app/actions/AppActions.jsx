@@ -2,8 +2,8 @@ import alt from "../alt";
 
 class AppActions {
 
-    sayHello(name) {
-        this.dispatch(name);
+    changeMessage(message) {
+        this.dispatch(message);
     }
 
 }

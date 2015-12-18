@@ -11,9 +11,10 @@
   "repository": "github.com/rherwig/react-alt-template",
   "license": "ISC",
   "devDependencies": {
-    "alt": "^0.18.1",
+    "alt": "^0.17.9",
     "babel-core": "^6.3.21",
     "babel-loader": "^6.2.0",
+    "babel-plugin-transform-class-properties": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
