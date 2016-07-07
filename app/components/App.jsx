@@ -1,9 +1,9 @@
-import React from "react";
-import AppStore from "../stores/AppStore";
-import AppActions from "../actions/AppActions";
+import React from 'react';
+import AppStore from '../stores/AppStore';
 
-import connectToStores from 'alt/utils/connectToStores';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
+@connectToStores
 class App extends React.Component {
 
     static getStores() {
@@ -14,19 +14,16 @@ class App extends React.Component {
         return AppStore.getState();
     }
 
-    changeMessage = () => {
-        AppActions.changeMessage('World');
-    };
-
     render() {
+        const {message} = this.props;
+
         return (
             <div>
-                <h1>{this.props.message}</h1>
-                <button onClick={this.changeMessage}>Change</button>
+                {message}
             </div>
         );
     }
 
 }
 
-export default connectToStores(App);
+export default App;

@@ -1,22 +1,18 @@
 import alt from '../alt';
+import {createStore} from 'alt-utils/lib/decorators';
 import AppActions from '../actions/AppActions';
 
+@createStore(alt)
 class AppStore {
 
     constructor() {
         this.bindActions(AppActions);
 
         this.state = {
-            message: 'Hello!'
+            message: 'Welcome to ReactJS!'
         }
-    }
-
-    changeMessage(message) {
-        this.setState({
-            message: message
-        });
     }
 
 }
 
-export default alt.createStore(AppStore, 'AppStore');
+export default AppStore;

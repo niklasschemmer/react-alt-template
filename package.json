@@ -1,28 +1,42 @@
 {
-  "name": "reactAlt",
+  "name": "react-alt-template",
   "version": "1.0.0",
   "description": "React flux template",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --colors --progress"
+    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0",
+    "build": "webpack -p --colors --progress --config ./webpack/dev.babel.js"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "alt",
+    "flux"
+  ],
   "author": "Rico Herwig",
-  "repository": "github.com/rherwig/react-alt-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rherwig/react-alt-template"
+  },
   "license": "ISC",
   "devDependencies": {
-    "alt": "^0.17.9",
-    "babel-core": "^6.3.21",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-class-properties": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-0": "^6.3.13",
-    "jsx-loader": "^0.13.2",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "alt": "^0.18.4",
+    "alt-utils": "^1.0.0",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "immutable": "^3.8.1",
+    "node-sass": "^3.8.0",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
     "react-hot-loader": "^1.3.0",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
