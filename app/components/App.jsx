@@ -1,29 +1,44 @@
+import './app.scss';
 import React from 'react';
-import AppStore from '../stores/AppStore';
+import assign from 'object-assign';
 
+import AppActions from '../actions/AppActions';
+import AppStore from '../stores/AppStore';
 import connectToStores from 'alt-utils/lib/connectToStores';
 
 @connectToStores
-class App extends React.Component {
+export default class App extends React.Component {
 
     static getStores() {
         return [AppStore];
     }
 
     static getPropsFromStores() {
-        return AppStore.getState();
+        return assign({},
+            AppStore.getState()
+        );
+    }
+
+    componentDidMount() {
+        AppActions.fetch();
     }
 
     render() {
-        const {message} = this.props;
+        const {todos} = this.props;
 
         return (
-            <div>
-                {message}
+            <div className="app">
+                <h1>Welcome to ReactJS! </h1>
+                <p>
+                    This is an example of a react/flux app. To get started, be sure to:
+                </p>
+                {todos.map((todo, index) =>
+                    <p key={index}>
+                        {todo.get('name')}
+                    </p>
+                )}
             </div>
         );
     }
 
 }
-
-export default App;

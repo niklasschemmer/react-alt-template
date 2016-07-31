@@ -1,12 +1,10 @@
 import webpack from 'webpack';
 import path from 'path';
 
-const ROOT_PATH = path.resolve('./');
+var ROOT_PATH = path.resolve('./');
 
 export default {
     entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://0.0.0.0:8080',
         path.resolve(ROOT_PATH, 'app/index')
     ],
     resolve: {
@@ -16,12 +14,12 @@ export default {
         path: path.resolve(ROOT_PATH, 'build'),
         filename: 'app.bundle.js'
     },
-    devtool: 'cheap-eval-source-map',
+    devtool: 'hidden-source-map',
     module: {
         loaders: [
             {
                 test: /\.(js|jsx)$/,
-                loaders: ['react-hot', 'babel'],
+                loader: 'babel',
                 exclude: /node_modules/
             },
             {
@@ -32,7 +30,11 @@ export default {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': 'production'
+            }
+        })
     ]
 };
